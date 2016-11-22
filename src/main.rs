@@ -58,10 +58,8 @@ fn main () {
     let mut package_file : File = File::create("package.crx").unwrap();
     let mut package_buffer : Vec<u8> = Vec::new();
 
-    let mut magic_bytes : Vec<u8> = vec![0x43, 0x72, 0x32, 0x34];
-    let mut version : Vec<u8> = vec![];
-
-    version.write_u32::<LittleEndian>(2);
+    let mut magic_bytes : Buffer = vec![0x43, 0x72, 0x32, 0x34];
+    let mut version : Buffer = vec![0x02, 0x00, 0x00, 0x00];
 
     package_buffer.append(&mut magic_bytes);
     package_buffer.append(&mut version);
